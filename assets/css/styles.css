@@ -12,6 +12,10 @@ body {
     font-weight: 400;
 }
 
+body>* {
+    margin: 10px 40px;
+}
+
 
 h1 {
     font-weight: 300;
