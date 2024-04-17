@@ -7,9 +7,12 @@ from jinja2 import (
 )
 import markdown
 from utilities import copy_dir
+import content.meta as meta
+
 
 BUILD_PATH = Path("../")
 COMPONENT_PATH = Path("./components")
+CONTENT_PATH = Path("./content")
 
 # Ensure paths exist
 BUILD_PATH.mkdir(parents=True, exist_ok=True)
@@ -30,59 +33,43 @@ for dir in component_list:
     if src.is_dir():
         copy_dir(src, dst)
 
-
-# Build common components use by article and page templates: eg. site nav ####################################################################
-site_nav = []
-nav_list = ["content/index.md", "content/page01.md", "content/article_01.md"]
-for link in nav_list:
-    md = markdown.Markdown(extensions=["meta"])
-    nav_item = {}
-    with open(link) as f:
-        md.convert(f.read())
-    for key in md.Meta:
-        nav_item[key] = ", ".join(md.Meta[key])
-    site_nav.append(nav_item)
-
-
-#### build articles ####################################################################
-
-# TODO: allow files to be built into subfolders
-
-article_list = ["content/article_01.md"]
-for article in article_list:
-    template = templates.get_template("article/article_full.jinja")
-    md = markdown.Markdown(extensions=["meta"])
-
-    with open(article) as f:
-        content = md.convert(f.read())
-
-    context = {"content": content, "site_nav": site_nav}
-    for key in md.Meta:
-        context[key] = ", ".join(md.Meta[key])
-
-    filepath = BUILD_PATH / f'{context["slug"]}.html'
-    with open(filepath, "w") as f:
-        f.write(template.render(context))
+#### copy media from content to build dir #######################################
+content_list = [d for d in CONTENT_PATH.iterdir() if d.is_dir()]
+for dir in content_list:
+    dst = BUILD_PATH / "media" / dir.name
+    src = Path(dir, "media")
+    if src.is_dir():
+        copy_dir(src, dst)
 
 
 ########build pages ################################################################
 
-page_list = ["content/index.md", "content/page01.md"]
-# Build the pages
-for page in page_list:
 
-    template = templates.get_template("base.jinja")
+def generate(template, page):
+
     md = markdown.Markdown(extensions=["meta"])
+    content_src = Path("content", page["content"])
+    with open(content_src) as f:
+        page["content"] = md.convert(f.read())
+    page["site_nav"] = meta.site_nav
 
-    with open(page) as f:
-        content = md.convert(f.read())
-
-    context = {"content": content, "site_nav": site_nav}
     for key in md.Meta:
-        context[key] = ", ".join(md.Meta[key])
+        page[key] = ", ".join(md.Meta[key])
 
-    filepath = BUILD_PATH / f'{context["slug"]}.html'
+    filepath = BUILD_PATH / page["slug"]
     with open(filepath, "w") as f:
-        f.write(template.render(context))
+        f.write(template.render(page))
 
-print("site generated")
+
+# Generate the pages
+page_tplt = templates.get_template("global/base.jinja")
+for page in meta.pages:
+    generate(page_tplt, page)
+
+# Generate the articles
+article_tplt = templates.get_template("article/full.jinja")
+for page in meta.articles:
+    generate(article_tplt, page)
+
+
+print("Genie generation complete")

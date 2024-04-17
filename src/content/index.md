@@ -1,10 +1,7 @@
-document_title: site generator
-title:   Site generator
-nav_title: home
-slug: index
-summary: This page was generated with Python, Jinja2, and Markdown.
+title:   Site-Genie-rator
 authors: j0ono0
-date:    2024-4-16
+created:    2024-4-16
+updated:   2024-4-17
 
 ## Python site generator is go
 

@@ -1,10 +1,7 @@
-document_title: Some more thoughts
 title:   Some more thoughts
-nav_title: thoughts
-slug: page02
-summary: This page was *also* generated with Python, Jinja2, and Markdown.
 authors: j0ono0
-date:    2024-4-16
+created:    2024-4-16
+updated:   2024-4-17
 
 Just another page. to see how content might be filed and used.
 

@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-{% include 'head.html' %}
+{% include 'global/head.html' %}
 <title>j0ono0: {{ document_title }}</title>
   {% block head %}{% endblock %}
 </head>
 
 <body>
     <header>
-        {% include 'site_nav.jinja' %}
+        {% include 'global/site_nav.jinja' %}
     </header>
     <main>
         <h1>{{ title }}</h1>
@@ -18,7 +18,7 @@
         {% endblock %}
     </main>
     <footer>made 2024</footer>
-    <script src="assets/scripts.js"></script>
+    <script src="assets/global/scripts.js"></script>
     {% block scripts %}{% endblock %}
 </body>
 
