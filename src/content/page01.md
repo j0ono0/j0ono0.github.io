@@ -21,3 +21,9 @@ Maybe that wouldn't be so bad. The file could include:
 - related thumbnail(s)
 - image-set alternatives
 - size alternatives
+
+other thoughts...
+
+- how to handle css.
+  - concatinate it all together
+  - copy into the build folder and link to there
