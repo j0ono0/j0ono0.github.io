@@ -2,24 +2,15 @@
 <html lang="en">
 
 <head>
-{% include 'global/head.html' %}
-<title>j0ono0: {{ document_title }}</title>
-  {% block head %}{% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    {% block head %}
+    <title>j0ono0{% if doc_title %}: {% endif %}{{ doc_title }}</title>
+    {% endblock %}
 </head>
 
 <body>
-    <header>
-        {% include 'global/site_nav.jinja' %}
-    </header>
-    <main>
-        <h1>{{ title }}</h1>
-        {% block main %}
-        {{ content }}
-        {% endblock %}
-    </main>
-    <footer>made 2024</footer>
-    <script src="assets/global/scripts.js"></script>
-    {% block scripts %}{% endblock %}
+    {% block body %}{% endblock %}
 </body>
 
 </html>
