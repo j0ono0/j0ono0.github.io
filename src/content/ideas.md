@@ -3,7 +3,7 @@ authors: j0ono0
 created:    2024-4-16
 updated:   2024-4-17
 
-Just another page. to see how content might be filed and used.
+Just another markdown doc. to see how content might be filed and used.
 
 Things not immediately obvious include the use of Markdown Meta-data. It is included at the top of each markdown content page and makes for a handy way to include some meta data with the content. 
 

@@ -1,1 +1,0 @@
-/* js common to all page components */

@@ -7,11 +7,10 @@ from jinja2 import (
 )
 import markdown
 from utilities import copy_dir
-import content.meta as meta
-import copy
 
 BUILD_PATH = Path("../")
 COMPONENT_PATH = Path("./components")
+TEMPLATE_PATH = Path("./templates")
 CONTENT_PATH = Path("./content")
 
 # Ensure paths exist
@@ -27,9 +26,9 @@ templates = Environment(
 )
 
 
-#### copy assets from components to build dir #######################################
-component_list = [d for d in COMPONENT_PATH.iterdir() if d.is_dir()]
-for dir in component_list:
+#### copy assets from template themes to build dir #######################################
+theme_list = [d for d in TEMPLATE_PATH.iterdir() if d.is_dir()]
+for dir in theme_list:
     dst = BUILD_PATH / "assets" / dir.name
     src = Path(dir, "assets")
     if src.is_dir():
@@ -44,46 +43,50 @@ for dir in content_list:
         copy_dir(src, dst)
 
 
-########build pages ################################################################
-
-
-def generate(template, page):
-
+def parse_markdown(template, src):
     md = markdown.Markdown(extensions=["meta"])
-    ctx = copy.copy(page)
-    content_src = Path("content", page["content"])
-    with open(content_src) as f:
+    ctx = {"src": src}
+    with open(src) as f:
         ctx["content"] = md.convert(f.read())
-    ctx["site_nav"] = meta.site_nav
 
     for key in md.Meta:
         ctx[key] = ", ".join(md.Meta[key])
 
-    filepath = BUILD_PATH / ctx["slug"]
-    with open(filepath, "w") as f:
-        f.write(template.render(ctx))
+    return template.render(ctx)
 
 
-# Generate the pages
-page_tplt = templates.get_template("page/page_template.jinja")
-for page in meta.pages:
-    generate(page_tplt, page)
+### build page #########################
 
-# Generate the articles
-article_tplt = templates.get_template("article/full.jinja")
-for page in meta.articles:
-    generate(article_tplt, page)
+# page template
+page_tplt = templates.get_template("minima/minima.jinja")
 
+# extra content for page head (some in minima template already!)
+head = []
+head.append(templates.get_template("analytics.jinja").render())
+head.append(
+    templates.get_template("html_meta.jinja").render(
+        meta={
+            "author": "j0ono0",
+            "description": "A static site generator experiment using Python.",
+        }
+    )
+)
+
+# content for page body
+body = []
+
+section_tplt = templates.get_template("minima/section.jinja")
+for mdfile in ["intro.md", "ideas.md"]:
+    src_path = Path("content", mdfile)
+    body.append(parse_markdown(section_tplt, src_path))
+
+# add collated content to template
+page_ctx = {"doc_title": "Genie-rator", "head": head, "body": body}
+
+with open(BUILD_PATH / "index.html", "w") as f:
+    f.write(page_tplt.render(page_ctx))
 
 ########################################################################
-########################################################################
-### test #####################################################################
-article_list_tplt = templates.get_template("/article/link_list.jinja")
-article_list_html = article_list_tplt.render({"items": meta.articles})
-print(article_list_html)
-
-########################################################################
-########################################################################
 
 
-print("Genie generation complete")
+print("\nGenie generation complete\n")

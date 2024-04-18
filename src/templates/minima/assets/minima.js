@@ -1,0 +1,1 @@
+console.log('minima template assets working.')

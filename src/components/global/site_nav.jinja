@@ -1,7 +1,0 @@
-<nav>
-    <ul>
-        {% for item in site_nav %}
-        <li {% if item.href is eq(slug) %}class="selected"{% endif %}><a href="{{ item.href }}">{{ item.text }}</a></li>
-        {% endfor %}
-    </ul>
-</nav>
