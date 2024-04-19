@@ -1,5 +1,17 @@
 {% extends "base.jinja" %}
 
+{% macro nav(data, slug) %}
+<nav>
+    <ul class="{{ data['class'] }}">
+        {% for item in data['items'] %}
+        <li {% if item.slug is eq slug %}class="selected" {% endif %}>
+            <a href="{{ item.slug }}">{{ item.text }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+{% endmacro %}
+
 {% block head %}
 {{ super() }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +26,7 @@
 {% block body %}
 <header>
     <h1>Site Genie-rator</h1>
+    {{ nav(navdata, slug) }}
 </header>
 <main>
     {% for element in body %}
