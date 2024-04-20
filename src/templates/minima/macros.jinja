@@ -2,6 +2,12 @@
 <meta name="{{ name }}" content="{{ content }}" />
 {% endmacro %}
 
+{% macro link(name, content) %}
+<link rel="{{ name }}" href="{{ content }}" />
+{% endmacro %}
+
+
+
 {% macro google_analytics() %}
 <!-- Insert Google tag code here -->
 {% endmacro %}

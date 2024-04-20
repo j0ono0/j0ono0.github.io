@@ -57,6 +57,21 @@ site_nav = [
     {"text": "decisions", "slug": "decisions.html"},
 ]
 
+
+#####################################################################
+##  attempt at a gallery content ####################################
+
+gallery_path = CONTENT_PATH / "gallery" / "media" / "thumbnails"
+thumbnail_src = [
+    Path("media", "gallery", "thumbnails", item.name)
+    for item in gallery_path.iterdir()
+    if item.is_file()
+]
+
+#####################################################################
+#####################################################################
+
+
 ### assemble pages #########################
 
 pages = [
@@ -66,13 +81,19 @@ pages = [
         "doc_title": "Genie-rator",
         "nav": site_nav,
         "head": [
-            ("metatag", ("author", "j0ono0")),
-            ("metatag", ("description", "A genie that generates static sites")),
-            ("google_analytics", ()),
+            ("minima", "metatag", ("author", "j0ono0")),
+            (
+                "minima",
+                "metatag",
+                ("description", "A genie that generates static sites"),
+            ),
+            ("minima", "google_analytics", ()),
+            ("minima", "link", ("stylesheet", "assets/gallery/gallery.css")),
         ],
         "main": [
-            ("md_section", (parse_md_file(Path("content", "intro.md")))),
-            ("md_section", (parse_md_file(Path("content", "ideas.md")))),
+            ("minima", "md_section", (parse_md_file(Path("content", "intro.md")))),
+            ("gallery", "thumbnail_gallery", ("gallery", thumbnail_src)),
+            ("minima", "md_section", (parse_md_file(Path("content", "ideas.md")))),
         ],
         "footer": [],
     },
@@ -82,14 +103,18 @@ pages = [
         "doc_title": "Content collated into in blocks",
         "nav": site_nav,
         "head": [
-            ("metatag", ("author", "j0ono0")),
-            ("metatag", ("description", "3 content blocks assembled together.")),
-            ("google_analytics", ()),
+            ("minima", "metatag", ("author", "j0ono0")),
+            (
+                "minima",
+                "metatag",
+                ("description", "3 content blocks assembled together."),
+            ),
+            ("minima", "google_analytics", ()),
         ],
         "main": [
-            ("md_section", (parse_md_file(Path("content", "block_01.md")))),
-            ("md_section", (parse_md_file(Path("content", "block_02.md")))),
-            ("md_section", (parse_md_file(Path("content", "block_03.md")))),
+            ("minima", "md_section", (parse_md_file(Path("content", "block_01.md")))),
+            ("minima", "md_section", (parse_md_file(Path("content", "block_02.md")))),
+            ("minima", "md_section", (parse_md_file(Path("content", "block_03.md")))),
         ],
     },
     {
@@ -98,12 +123,12 @@ pages = [
         "doc_title": "Ideas for Genie-rator",
         "nav": site_nav,
         "head": [
-            ("metatag", ("author", "j0ono0")),
-            ("metatag", ("description", "Ideas for Python genie-rator.")),
-            ("google_analytics", ()),
+            ("minima", "metatag", ("author", "j0ono0")),
+            ("minima", "metatag", ("description", "Ideas for Python genie-rator.")),
+            ("minima", "google_analytics", ()),
         ],
         "main": [
-            ("md_section", (parse_md_file(Path("content", "ideas.md")))),
+            ("minima", "md_section", (parse_md_file(Path("content", "ideas.md")))),
         ],
     },
     {
@@ -112,12 +137,12 @@ pages = [
         "doc_title": "Decisions for Genie-rator",
         "nav": site_nav,
         "head": [
-            ("metatag", ("author", "j0ono0")),
-            ("metatag", ("description", "Decisions for Python genie-rator.")),
-            ("google_analytics", ()),
+            ("minima", "metatag", ("author", "j0ono0")),
+            ("minima", "metatag", ("description", "Decisions for Python genie-rator.")),
+            ("minima", "google_analytics", ()),
         ],
         "main": [
-            ("md_section", (parse_md_file(Path("content", "decisions.md")))),
+            ("minima", "md_section", (parse_md_file(Path("content", "decisions.md")))),
         ],
     },
 ]

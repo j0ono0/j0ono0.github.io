@@ -1,0 +1,26 @@
+.thumbnail-gallery {
+    header {
+        background: #555;
+        color: #fff;
+        padding: 4px 12px;
+
+        h2 {
+            font-weight: 300;
+
+        }
+    }
+
+    div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 3px;
+        align-content: center;
+        margin: 3px 0 0 0;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+}

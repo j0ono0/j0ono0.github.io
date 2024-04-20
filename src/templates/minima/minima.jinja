@@ -1,6 +1,6 @@
 {% extends "base.jinja" %}
 
-{% import 'minima/macros.jinja' as mm %}
+{% import 'macros.jinja' as macros %}
 
 {% block head %}
 {{ super() }}
@@ -9,8 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/minima/minima.css">
 
-{% for macro, args in head %}
-{{ mm[macro](*args) }}
+{% for namespace, macro, args in head %}
+{{ macros[namespace][macro](*args) }}
+
 {% endfor %}
 
 {% endblock head %}
@@ -21,8 +22,8 @@
     {% include 'minima/nav.jinja' %}
 </header>
 <main>
-    {% for macro, args in main %}
-    {{ mm[macro](*args) }}
+    {% for namespace, macro, args in main %}
+    {{ macros[namespace][macro](*args) }}
     {% endfor %}
 
 </main>

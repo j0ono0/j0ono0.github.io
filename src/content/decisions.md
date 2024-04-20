@@ -7,7 +7,7 @@ updated:   2024-4-20
 
 Not final decisions or conclusions necessarly, but thoughts that are currently guiding my ideas and choices.
 
-- Markdown is nice, but I could also support .rst?
+
 - Content in markdown should be strictly about the document.
   Meta data in the markdown file enhances the file BUT this content should strictly relate to the markdown content and not the website. eg including a 'url' or 'taxonomy tags' in the md file is a bad idea.
 - Macros are a nice way to control template components. The allow clean code for documenting page content.
