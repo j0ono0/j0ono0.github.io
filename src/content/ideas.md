@@ -24,3 +24,5 @@ other thoughts...
 - how to handle css.
   - concatinate it all together
   - copy into the build folder and link to there
+
+- Validating that data is correct as much as possible when generating!!! I've gotten site nav and links wrong several times already.

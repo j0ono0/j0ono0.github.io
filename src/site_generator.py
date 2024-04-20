@@ -94,12 +94,26 @@ pages = [
     },
     {
         "template": templates.get_template("minima/minima.jinja"),
+        "slug": "ideas.html",
+        "doc_title": "Ideas for Genie-rator",
+        "nav": site_nav,
+        "head": [
+            ("metatag", ("author", "j0ono0")),
+            ("metatag", ("description", "Ideas for Python genie-rator.")),
+            ("google_analytics", ()),
+        ],
+        "main": [
+            ("md_section", (parse_md_file(Path("content", "ideas.md")))),
+        ],
+    },
+    {
+        "template": templates.get_template("minima/minima.jinja"),
         "slug": "decisions.html",
         "doc_title": "Decisions for Genie-rator",
         "nav": site_nav,
         "head": [
             ("metatag", ("author", "j0ono0")),
-            ("metatag", ("description", "Ideas for Python genie-rator.")),
+            ("metatag", ("description", "Decisions for Python genie-rator.")),
             ("google_analytics", ()),
         ],
         "main": [
