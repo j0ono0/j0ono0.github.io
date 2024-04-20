@@ -1,16 +1,6 @@
 {% extends "base.jinja" %}
 
-{% macro nav(data, slug) %}
-<nav>
-    <ul class="{{ data['class'] }}">
-        {% for item in data['items'] %}
-        <li {% if item.slug is eq slug %}class="selected" {% endif %}>
-            <a href="{{ item.slug }}">{{ item.text }}</a>
-        </li>
-        {% endfor %}
-    </ul>
-</nav>
-{% endmacro %}
+{% import 'minima/macros.jinja' as mm %}
 
 {% block head %}
 {{ super() }}
@@ -18,20 +8,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/minima/minima.css">
-{% for element in head %}
-{{ element }}
+
+{% for macro, args in head %}
+{{ mm[macro](*args) }}
 {% endfor %}
+
 {% endblock head %}
 
 {% block body %}
 <header>
     <h1>Site Genie-rator</h1>
-    {{ nav(navdata, slug) }}
+    {% include 'minima/nav.jinja' %}
 </header>
 <main>
-    {% for element in body %}
-    {{ element }}
+    {% for macro, args in main %}
+    {{ mm[macro](*args) }}
     {% endfor %}
+
 </main>
 <footer>made with Python</footer>
 <script src="assets/minima/minima.js"></script>
