@@ -30,3 +30,6 @@ other thoughts...
 - Thinking about overriding some Markdown but feel like it's a bad idea to mess with expected output from it.
   My motive is the desire to  support some more html tags with 'short-hand' markup. Specifically using image-set to serve webp images and jpg/png fallback.
 - Related to above - auto-processing images to useful formats. eg creating thumbnails and webp versions (even image-sets) for a gallery component.
+- silly name ideas about the 'magical' ease of creating an html site from static content:
+  - site 'generator' -> genie-rator
+  - jinni-rator, djinn-erator. plays on 'Jinja' module name too.

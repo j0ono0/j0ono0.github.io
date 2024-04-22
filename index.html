@@ -11,18 +11,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/minima/minima.css">
 
-<meta name="author" content="j0ono0" />
+<meta author="author" content="j0ono0" />
 
+<meta description="description" content="A site generator made with Python." />
 
-<meta name="description" content="A genie that generates static sites" />
-
-
-<!-- Insert Google tag code here -->
-
-
-<link rel="stylesheet" href="assets/gallery/gallery.css" />
-
-
+<link  rel="stylesheet"  href="assets/gallery/gallery.css"  />
 
 </head>
 
@@ -46,16 +39,15 @@
     </ul>
 </nav></header>
 <main>
-    <section>
+<section>
     <h1>Site-Genie-rator, Introduction</h1>
     <h2>Python site generator is go</h2>
 <p>Built using Python, Jinja2, and Markdown. This page has been generated locally and pushed to github.</p>
 <p>The biggest question in my mind is how to structure content, templates, and themes. Currently I'm thinking 'prose' is stored as markdown docs and 'configuration' data (page urls, navigation menus, tags, etc) stored as python lists and dictionaries. This content could then be applied to templates that result in chunks of HTML. The HTML chunks can, in turn, be applied to further templates until a final page is complete. </p>
 <p>I'm up to version 2 of how I might structure these things. Generally it's looking really promising with a balance between flexibility, neat content filing, easy authoring, and consistent styling.</p>
-</section>
-    <section class="thumbnail-gallery">
+</section><section class="thumbnail-gallery">
     <header>
-        <h2>gallery</h2>
+        <h2>Studio photography</h2>
     </header>
     <div>
         <img src="media\gallery\thumbnails\cufflinks green_thumb.webp" />
@@ -65,8 +57,7 @@
         <img src="media\gallery\thumbnails\female swashbuckler_01_thumb.webp" />
         <img src="media\gallery\thumbnails\lego_minifigure_boat_capt_thumb.webp" />
     </div>
-</section>
-    <section>
+</section><section>
     <h1>Some more thoughts</h1>
     <p>Just another markdown doc. to see how content might be filed and used.</p>
 <p>Things not immediately obvious include the use of Markdown Meta-data. It is included at the top of each markdown content page and makes for a handy way to include some meta data with the content. </p>
@@ -95,9 +86,11 @@
 <li>Thinking about overriding some Markdown but feel like it's a bad idea to mess with expected output from it.
   My motive is the desire to  support some more html tags with 'short-hand' markup. Specifically using image-set to serve webp images and jpg/png fallback.</li>
 <li>Related to above - auto-processing images to useful formats. eg creating thumbnails and webp versions (even image-sets) for a gallery component.</li>
+<li>silly name ideas about the 'magical' ease of creating an html site from static content:</li>
+<li>site 'generator' -&gt; genie-rator</li>
+<li>jinni-rator, djinn-erator. plays on 'Jinja' module name too.</li>
 </ul>
 </section>
-
 </main>
 <footer>made with Python</footer>
 <script src="assets/minima/minima.js"></script>

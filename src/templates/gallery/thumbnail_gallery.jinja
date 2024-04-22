@@ -1,9 +1,9 @@
 <section class="thumbnail-gallery">
     <header>
-        <h2>{{ title }}</h2>
+        <h2>{{ ctx.title }}</h2>
     </header>
     <div>
-        {% for img in images %}
+        {% for img in ctx.images %}
         <img src="{{img}}" />
         {% endfor %}
     </div>
