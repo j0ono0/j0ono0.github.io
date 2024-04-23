@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>j0ono0: Genie-rator</title>
+    <title>j0ono0: jinn: a Python static site generator framework</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 
 <meta author="author" content="j0ono0" />
 
-<meta description="description" content="A site generator made with Python." />
+<meta description="description" content="A static site generator made with Python." />
 
 <link  rel="stylesheet"  href="assets/gallery/gallery.css"  />
 
@@ -28,9 +28,6 @@
             <a href="index.html">home</a>
         </li>
         <li >
-            <a href="3-section-blocks.html">blocks</a>
-        </li>
-        <li >
             <a href="ideas.html">ideas</a>
         </li>
         <li >
@@ -40,11 +37,16 @@
 </nav></header>
 <main>
 <section>
-    <h1>Site-Genie-rator, Introduction</h1>
+    <h1>jinn, a Python static site generator framework</h1>
     <h2>Python site generator is go</h2>
-<p>Built using Python, Jinja2, and Markdown. This page has been generated locally and pushed to github.</p>
-<p>The biggest question in my mind is how to structure content, templates, and themes. Currently I'm thinking 'prose' is stored as markdown docs and 'configuration' data (page urls, navigation menus, tags, etc) stored as python lists and dictionaries. This content could then be applied to templates that result in chunks of HTML. The HTML chunks can, in turn, be applied to further templates until a final page is complete. </p>
-<p>I'm up to version 2 of how I might structure these things. Generally it's looking really promising with a balance between flexibility, neat content filing, easy authoring, and consistent styling.</p>
+<p>Built using Python, Jinja2, and Markdown. </p>
+<p>The philosophy of this project (experiment might be more accurate) is to provide a flexible framework for creating static sites. By the time it is finished I hope it can provide a simple 'no coding' solution and a solid base to build more complex generators.</p>
+<p>Python's Jinja2 and Markdown packages provide the heavy lifting. In reality the generator is a very thin 'glue' holding these things together. Possibly the greatest aspect of jinn is as an example of how a static site generator project might be organised. </p>
+</section><section>
+    <h1></h1>
+    <h2>Another content block</h2>
+<p>This block of text was authored as a separate .md file and inserted in the build process. </p>
+<p>Below is yet another separate piece of content. The gallery content is filed as a Python module and makes use of its own logic to collect/collate content. This functionality allows content to be independent and easy to insert.</p>
 </section><section class="thumbnail-gallery">
     <header>
         <h2>Studio photography</h2>
@@ -57,39 +59,6 @@
         <img src="media\gallery\thumbnails\female swashbuckler_01_thumb.webp" />
         <img src="media\gallery\thumbnails\lego_minifigure_boat_capt_thumb.webp" />
     </div>
-</section><section>
-    <h1>Some more thoughts</h1>
-    <p>Just another markdown doc. to see how content might be filed and used.</p>
-<p>Things not immediately obvious include the use of Markdown Meta-data. It is included at the top of each markdown content page and makes for a handy way to include some meta data with the content. </p>
-<p>It might become painful pattern for image heavy content? I could potentially have a .md file for every media item. </p>
-<p>Maybe that wouldn't be so bad. The file could include:</p>
-<ul>
-<li>src</li>
-<li>title</li>
-<li>description (long and short?)</li>
-<li>alt text</li>
-<li>related thumbnail(s)</li>
-<li>image-set alternatives</li>
-<li>size alternatives</li>
-</ul>
-<p>other thoughts...</p>
-<ul>
-<li>how to handle css.</li>
-<li>concatinate it all together</li>
-<li>
-<p>copy into the build folder and link to there (<em>this is what is currently happening</em>)</p>
-</li>
-<li>
-<p>Validating that data is correct as much as possible when generating!!! I've gotten site nav and links wrong several times already with just 3 and 4 pages.</p>
-</li>
-<li>Markdown is nice, but I could also support .rst?</li>
-<li>Thinking about overriding some Markdown but feel like it's a bad idea to mess with expected output from it.
-  My motive is the desire to  support some more html tags with 'short-hand' markup. Specifically using image-set to serve webp images and jpg/png fallback.</li>
-<li>Related to above - auto-processing images to useful formats. eg creating thumbnails and webp versions (even image-sets) for a gallery component.</li>
-<li>silly name ideas about the 'magical' ease of creating an html site from static content:</li>
-<li>site 'generator' -&gt; genie-rator</li>
-<li>jinni-rator, djinn-erator. plays on 'Jinja' module name too.</li>
-</ul>
 </section>
 </main>
 <footer>made with Python</footer>

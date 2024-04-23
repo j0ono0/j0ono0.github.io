@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>j0ono0: Ideas for Genie-rator</title>
+    <title>j0ono0: jinn: Some ideas</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +13,8 @@
 
 <meta author="author" content="j0ono0" />
 
-<meta description="description" content="Some ideas on my generator" />
+<meta description="description" content="A site generator made with Python." />
 
-<!-- Insert Google tag code here -->
 
 </head>
 
@@ -27,9 +26,6 @@
         <li >
             <a href="index.html">home</a>
         </li>
-        <li >
-            <a href="3-section-blocks.html">blocks</a>
-        </li>
         <li class="selected" >
             <a href="ideas.html">ideas</a>
         </li>
@@ -40,38 +36,29 @@
 </nav></header>
 <main>
 <section>
-    <h1>Some more thoughts</h1>
-    <p>Just another markdown doc. to see how content might be filed and used.</p>
-<p>Things not immediately obvious include the use of Markdown Meta-data. It is included at the top of each markdown content page and makes for a handy way to include some meta data with the content. </p>
-<p>It might become painful pattern for image heavy content? I could potentially have a .md file for every media item. </p>
-<p>Maybe that wouldn't be so bad. The file could include:</p>
+    <h1>jinn: Thinking as I go</h1>
+    <p>Not just ideas but thoughts around what needs addressing still.</p>
+<h2>CSS</h2>
+<p>how to handle css? For me the days of SASS are over as css natively has all the features I used sass for. Still leaves some options around what I could do...</p>
 <ul>
-<li>src</li>
-<li>title</li>
-<li>description (long and short?)</li>
-<li>alt text</li>
-<li>related thumbnail(s)</li>
-<li>image-set alternatives</li>
-<li>size alternatives</li>
-</ul>
-<p>other thoughts...</p>
-<ul>
-<li>how to handle css.</li>
+<li>copy into the build folder and link to there (<em>this is what is currently happening</em>)</li>
 <li>concatinate it all together</li>
-<li>
-<p>copy into the build folder and link to there (<em>this is what is currently happening</em>)</p>
-</li>
-<li>
-<p>Validating that data is correct as much as possible when generating!!! I've gotten site nav and links wrong several times already with just 3 and 4 pages.</p>
-</li>
-<li>Markdown is nice, but I could also support .rst?</li>
-<li>Thinking about overriding some Markdown but feel like it's a bad idea to mess with expected output from it.
-  My motive is the desire to  support some more html tags with 'short-hand' markup. Specifically using image-set to serve webp images and jpg/png fallback.</li>
-<li>Related to above - auto-processing images to useful formats. eg creating thumbnails and webp versions (even image-sets) for a gallery component.</li>
-<li>silly name ideas about the 'magical' ease of creating an html site from static content:</li>
-<li>site 'generator' -&gt; genie-rator</li>
-<li>jinni-rator, djinn-erator. plays on 'Jinja' module name too.</li>
 </ul>
+<h2>Site validation</h2>
+<p>I should include some validation to ensure the build site is error free as much as possible when generating. I've gotten site nav and links wrong several times already with just 3 and 4 pages.</p>
+<h2>Authoring formats</h2>
+<p>Some ideas...</p>
+<ul>
+<li>Cater for .rst format</li>
+<li>Cater for HTML content (that doesn't need parsing)</li>
+<li>include 'chapters' in .md meta to allow content in multiple .md file to be linked 'internally' - saved on listing each file in a page config.</li>
+</ul>
+<p>It might be nice to be able to inject some customised html into a markdown file content. This would avoid needing to break .md file up to include blocks of html (eg interactive diagrams, thumbnail galleries etc) within the content.</p>
+<p>Python-Markdown has an extension API, which is might be the way to go. I need to experiment with suppored features.</p>
+<h2>Processing on build</h2>
+<p>Possibly not for default jinn, but I'm think of doing some image processing - converting jpg to webp formats for my gallery images. Wonder if I could make a hook to allow user functions to run on build?</p>
+<h2>hyperlinks</h2>
+<p>should I figure out how to do relative and absolute options for generating hyperlinks? Might fall to the user and how they present the pagedata? </p>
 </section>
 </main>
 <footer>made with Python</footer>

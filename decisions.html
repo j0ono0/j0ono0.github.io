@@ -4,25 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>j0ono0: Decisions for Genie-rator</title>
+    <title>j0ono0: jinn: Some decisions</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/minima/minima.css">
 
-<meta name="name" content="author" />
-<meta content="content" content="j0ono0" />
+<meta author="author" content="j0ono0" />
 
-<meta name="name" content="description" />
-<meta content="content" content="Some ideas on my generator" />
-
-<!-- Insert Google tag code here -->
-<title >
-    My page specific title
-</title>
-
-<meta  author="j0ono0" >
+<meta description="description" content="A site generator made with Python." />
 
 
 </head>
@@ -34,9 +25,6 @@
     <ul>
         <li >
             <a href="index.html">home</a>
-        </li>
-        <li >
-            <a href="3-section-blocks.html">blocks</a>
         </li>
         <li >
             <a href="ideas.html">ideas</a>
@@ -51,12 +39,12 @@
     <h1>Decisions</h1>
     <h2>Some decisions!</h2>
 <p>Not final decisions or conclusions necessarly, but thoughts that are currently guiding my ideas and choices.</p>
-<ul>
-<li>Content in markdown should be strictly about the document.
-  Meta data in the markdown file enhances the file BUT this content should strictly relate to the markdown content and not the website. eg including a 'url' or 'taxonomy tags' in the md file is a bad idea.</li>
-<li>Macros are a nice way to control template components. The allow clean code for documenting page content.</li>
-<li>Separating the generator code and site content code into x2 repos could be helpful for project organisation and possible distribution later</li>
-</ul>
+<h3>Content in Markdown</h3>
+<p>I'm a fan of markdown and intend to also leverage the meta feature that Python's markdown offers. </p>
+<p>I see each .md file as a standalone artifact that, within itself, has no 'knowlege' of the website. As such the meta-data should strictly be focussed on the content and file. This excludes including website related data such as taxonomy/tags navigation information etc.</p>
+<h3>Framework status</h3>
+<p>There are plenty of staic site generators out there. Building my own as a learning experience is my primary motivation. I also have a few personal Django websites that could work well as static sites. So I have some practical use cases too.  </p>
+<p>Some of my websites are a hotch-potch of design and coding and on occasion I want to show entire interfaces separate from my core site theme. This is my motivation to keep design and development options open and progress jinn as a framework. </p>
 </section>
 </main>
 <footer>made with Python</footer>
