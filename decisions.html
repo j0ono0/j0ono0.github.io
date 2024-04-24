@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>j0ono0: jinn: Some decisions</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/minima/minima.css">
 
-<meta author="author" content="j0ono0" />
 
-<meta description="description" content="A site generator made with Python." />
+<title>jinn: Decisions</title>
+<meta author="author" content="j0ono0">
+<meta description="description" content="Decisions about jinn, a Python static site generator">
 
 
 </head>
-
 <body>
 <header>
     <h1>Site Genie-rator</h1>
@@ -45,11 +43,12 @@
 <h3>Framework status</h3>
 <p>There are plenty of staic site generators out there. Building my own as a learning experience is my primary motivation. I also have a few personal Django websites that could work well as static sites. So I have some practical use cases too.  </p>
 <p>Some of my websites are a hotch-potch of design and coding and on occasion I want to show entire interfaces separate from my core site theme. This is my motivation to keep design and development options open and progress jinn as a framework. </p>
+<h3>Content filing</h3>
+<p>Content can be loaded from any location, it is not bound to reside in the project folder. This decoupling of content and website follows on from excluding website related meta in the content files. The down side is jinn can make no assumption on location of content and provide no 'short cuts' in data entry of content locations.</p>
 </section>
 </main>
 <footer>made with Python</footer>
 <script src="assets/minima/minima.js"></script>
 
 </body>
-
 </html>
